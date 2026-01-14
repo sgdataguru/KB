@@ -1,0 +1,132 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://clp.com.hk/schemas/document-metadata.json",
+  "title": "Document Metadata",
+  "description": "Schema for document metadata in CLP Knowledge Base",
+  "type": "object",
+  "required": ["id", "filename", "source_url", "content_type", "department", "version", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the document",
+      "pattern": "^doc-[a-z0-9]{12}$"
+    },
+    "filename": {
+      "type": "string",
+      "description": "Original filename",
+      "maxLength": 255
+    },
+    "title": {
+      "type": "string",
+      "description": "Document title (extracted or specified)",
+      "maxLength": 500
+    },
+    "source_url": {
+      "type": "string",
+      "description": "SharePoint URL to the original document",
+      "format": "uri"
+    },
+    "content_type": {
+      "type": "string",
+      "description": "MIME type of the document",
+      "enum": [
+        "application/pdf",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "video/mp4",
+        "video/webm",
+        "audio/wav",
+        "audio/m4a"
+      ]
+    },
+    "department": {
+      "type": "string",
+      "description": "Owning department",
+      "enum": ["HR", "Legal", "Technical", "General"]
+    },
+    "version": {
+      "type": "integer",
+      "description": "Document version number",
+      "minimum": 1
+    },
+    "status": {
+      "type": "string",
+      "description": "Document status",
+      "enum": ["active", "processing", "error", "deprecated", "archived"]
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Creation timestamp",
+      "format": "date-time"
+    },
+    "modified_at": {
+      "type": "string",
+      "description": "Last modification timestamp",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "User who created the document",
+      "format": "email"
+    },
+    "modified_by": {
+      "type": "string",
+      "description": "User who last modified the document",
+      "format": "email"
+    },
+    "page_count": {
+      "type": "integer",
+      "description": "Number of pages (for documents)",
+      "minimum": 0
+    },
+    "duration_seconds": {
+      "type": "integer",
+      "description": "Duration in seconds (for video/audio)",
+      "minimum": 0
+    },
+    "word_count": {
+      "type": "integer",
+      "description": "Approximate word count",
+      "minimum": 0
+    },
+    "chunk_count": {
+      "type": "integer",
+      "description": "Number of indexed chunks",
+      "minimum": 0
+    },
+    "tags": {
+      "type": "array",
+      "description": "Document tags for categorization",
+      "items": {
+        "type": "string",
+        "maxLength": 50
+      }
+    },
+    "retention_until": {
+      "type": "string",
+      "description": "Date until which document must be retained",
+      "format": "date-time"
+    },
+    "processing_info": {
+      "type": "object",
+      "description": "Processing pipeline information",
+      "properties": {
+        "processed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "processing_duration_ms": {
+          "type": "integer"
+        },
+        "transcription_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "error_message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

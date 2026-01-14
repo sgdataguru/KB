@@ -1,0 +1,580 @@
+WEBVTT
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/6-0
+00:00:03.415 --> 00:00:08.415
+<v Mark WONG>Junior.
+So video is is the only approach they can</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/6-1
+00:00:08.415 --> 00:00:13.315
+<v Mark WONG>do, right?
+So what they wanna do is so they they</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/5-0
+00:00:08.655 --> 00:00:08.735
+<v Maheshkumar Paik>Um.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/6-2
+00:00:13.315 --> 00:00:18.615
+<v Mark WONG>have some,
+they already have some video that senior.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/7-0
+00:00:18.655 --> 00:00:33.775
+<v Mark WONG>So what they want to do is they will
+utilize that for the AI.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/8-0
+00:00:33.815 --> 00:00:37.055
+<v Mark WONG>That chat bot and then they will.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/9-0
+00:00:38.695 --> 00:00:40.615
+<v Mark WONG>They will have all the um.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/11-0
+00:00:42.255 --> 00:00:48.957
+<v Mark WONG>Video store it in SharePoint and then
+shoot to that AI engine.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/11-1
+00:00:48.957 --> 00:00:53.638
+<v Mark WONG>So if you look at the architecture
+diagram,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/11-2
+00:00:53.638 --> 00:00:57.255
+<v Mark WONG>there are some component to sorry.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/13-0
+00:00:57.895 --> 00:01:03.150
+<v Mark WONG>There's some components to like analyze
+the video and then when those junior guys</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/13-1
+00:01:03.150 --> 00:01:07.572
+<v Mark WONG>when this face some issue,
+they'll go to the chat bot and search for</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/13-2
+00:01:07.572 --> 00:01:11.096
+<v Mark WONG>that for particular topics.
+So that those video, yeah,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/13-3
+00:01:11.096 --> 00:01:15.903
+<v Mark WONG>so those video maybe maybe one hour
+different from before, maybe one hour,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/12-0
+00:01:11.295 --> 00:01:14.135
+<v Maheshkumar Paik>Oh, oh, OK, got it, got it.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/13-4
+00:01:15.903 --> 00:01:16.415
+<v Mark WONG>but the.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/15-0
+00:01:17.815 --> 00:01:23.273
+<v Mark WONG>The engine need to analyze what are the
+question and what are the relevant</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/15-1
+00:01:23.273 --> 00:01:28.295
+<v Mark WONG>material in the video so you can point
+them exactly to that section.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/15-2
+00:01:28.295 --> 00:01:34.117
+<v Mark WONG>Say for example yeah this question you
+need to go to this video and if you look</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/14-0
+00:01:28.295 --> 00:01:28.895
+<v Maheshkumar Paik>By the time.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/15-3
+00:01:34.117 --> 00:01:34.335
+<v Mark WONG>at.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/16-0
+00:01:34.655 --> 00:01:39.175
+<v Mark WONG>uh to 30 minutes and then that's what you
+want.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/18-0
+00:01:40.655 --> 00:01:45.255
+<v Maheshkumar Paik>Got it. Um, super simple.
+How much time they are giving us for this?</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/17-0
+00:01:41.815 --> 00:01:42.135
+<v Mark WONG>Yep.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/20-0
+00:01:48.415 --> 00:01:52.563
+<v Mark WONG>Um, how much time?
+So they don't have a timeline yet.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/20-1
+00:01:52.563 --> 00:01:55.175
+<v Mark WONG>As soon as possible, I guess. Yep.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/19-0
+00:01:53.015 --> 00:01:53.135
+<v Maheshkumar Paik>OK.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/22-0
+00:01:54.375 --> 00:01:57.463
+<v Maheshkumar Paik>Do we have any budget? Do do?
+Do they have any budget in mind?</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/22-1
+00:01:57.463 --> 00:01:59.815
+<v Maheshkumar Paik>Like how much they would like to invest
+budget?</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/23-0
+00:02:00.655 --> 00:02:03.695
+<v Mark WONG>I will,
+I will know maybe today or tomorrow.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/26-0
+00:02:04.415 --> 00:02:09.945
+<v Maheshkumar Paik>OK, super simple.
+So basically what technically what what</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/24-0
+00:02:05.335 --> 00:02:05.695
+<v Mark WONG>Yeah.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/26-1
+00:02:09.945 --> 00:02:17.096
+<v Maheshkumar Paik>what is done in the market, right.
+So this is some somewhere it's called a</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/25-0
+00:02:13.975 --> 00:02:14.655
+<v Mark WONG>Mhm.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/26-2
+00:02:17.096 --> 00:02:19.575
+<v Maheshkumar Paik>rag, rag model RAG, right.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/27-0
+00:02:19.295 --> 00:02:21.655
+<v Mark WONG>OK. Sorry. Yep.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/31-0
+00:02:19.575 --> 00:02:23.235
+<v Maheshkumar Paik>The so if you want I can tell you the
+full form operate.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/31-1
+00:02:23.235 --> 00:02:27.408
+<v Maheshkumar Paik>I even I forgot the form of it.
+It's called retrieval argumented</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/28-0
+00:02:27.375 --> 00:02:27.495
+<v Mark WONG>Uh huh.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/31-2
+00:02:27.408 --> 00:02:31.646
+<v Maheshkumar Paik>generation. OK, So what it does.
+So basically it converts all the</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/31-3
+00:02:31.646 --> 00:02:36.333
+<v Maheshkumar Paik>documents, all your videos. OK videos.
+I I would say not videos, videos.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/31-4
+00:02:36.333 --> 00:02:39.415
+<v Maheshkumar Paik>You convert the videos into transcripts,
+right?</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/29-0
+00:02:37.255 --> 00:02:37.735
+<v Mark WONG>Mhm.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/30-0
+00:02:39.055 --> 00:02:40.055
+<v Mark WONG>Yep, Yep, Yep.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/34-0
+00:02:39.495 --> 00:02:43.339
+<v Maheshkumar Paik>And then it will it will remember the
+metadata of this all information.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/34-1
+00:02:43.339 --> 00:02:47.662
+<v Maheshkumar Paik>So basically when when I say metadata it
+means like where does this document and</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/34-2
+00:02:47.662 --> 00:02:52.040
+<v Maheshkumar Paik>where does this video sits in OK and all
+this information what is being extracted</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/32-0
+00:02:48.415 --> 00:02:49.695
+<v Mark WONG>Mm-hmm, mm-hmm.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/34-3
+00:02:52.040 --> 00:02:54.655
+<v Maheshkumar Paik>right would be saved in a vector based
+database.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/33-0
+00:02:55.415 --> 00:02:56.375
+<v Mark WONG>OK, OK.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/38-0
+00:02:56.255 --> 00:02:58.443
+<v Maheshkumar Paik>OK,
+now this database database would be</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/38-1
+00:02:58.443 --> 00:03:02.273
+<v Maheshkumar Paik>connected to LLM model. OK,
+but this LLM model is not meant to answer</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/35-0
+00:03:00.015 --> 00:03:00.135
+<v Mark WONG>Good.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/38-2
+00:03:02.273 --> 00:03:05.118
+<v Maheshkumar Paik>anything,
+any information outside this information,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/38-3
+00:03:05.118 --> 00:03:09.439
+<v Maheshkumar Paik>outside this knowledge base what we have
+so that it would be it would be tuned</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/36-0
+00:03:08.135 --> 00:03:08.615
+<v Mark WONG>Mhm.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/38-4
+00:03:09.439 --> 00:03:13.761
+<v Maheshkumar Paik>like that. So it won't be connected.
+It wouldn't be connecting to Internet and</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/38-5
+00:03:13.761 --> 00:03:14.855
+<v Maheshkumar Paik>try to do something.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/41-0
+00:03:14.935 --> 00:03:17.631
+<v Maheshkumar Paik>Funny, you know,
+so we can we can tune like that,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/37-0
+00:03:16.055 --> 00:03:16.615
+<v Mark WONG>Mhm.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/41-1
+00:03:17.631 --> 00:03:20.975
+<v Maheshkumar Paik>say that saying that whatever questions
+are you going to get,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/39-0
+00:03:19.975 --> 00:03:20.455
+<v Mark WONG>Uh huh.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/41-2
+00:03:20.975 --> 00:03:25.234
+<v Maheshkumar Paik>you need to find the questions answered
+in this set of documents what we have,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/41-3
+00:03:25.234 --> 00:03:28.254
+<v Maheshkumar Paik>not nothing beyond that.
+And if you're able to find it,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/40-0
+00:03:27.415 --> 00:03:27.575
+<v Mark WONG>Yeah.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/41-4
+00:03:28.254 --> 00:03:32.730
+<v Maheshkumar Paik>then you need to answer what exactly has
+been written as per the document and need</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/41-5
+00:03:32.730 --> 00:03:34.455
+<v Maheshkumar Paik>to refer where exactly you find.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/43-0
+00:03:34.655 --> 00:03:38.588
+<v Maheshkumar Paik>This information from which what?
+What is the source of it?</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/43-1
+00:03:38.588 --> 00:03:42.915
+<v Maheshkumar Paik>So super simple I I think so it's being
+done like multiple times.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/42-0
+00:03:42.135 --> 00:03:42.255
+<v Mark WONG>OK.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/43-2
+00:03:42.915 --> 00:03:46.454
+<v Maheshkumar Paik>If you want I I can create a very quick
+architecture.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/43-3
+00:03:46.454 --> 00:03:49.535
+<v Maheshkumar Paik>I think so we already have architecture
+right?</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/45-0
+00:03:48.335 --> 00:03:52.734
+<v Mark WONG>Yeah, yeah. So, so let's do, let's do it.
+I I think this is simple. Yeah,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/44-0
+00:03:52.215 --> 00:03:55.775
+<v Maheshkumar Paik>Yeah, and simple, yes.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/45-1
+00:03:52.734 --> 00:03:57.429
+<v Mark WONG>straightforward, simple. Let's do it.
+Not super complex at this at this moment</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/45-2
+00:03:57.429 --> 00:04:02.422
+<v Mark WONG>because I still want want us to talk with
+Microsoft first to understand 100% of the</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/45-3
+00:04:02.422 --> 00:04:03.135
+<v Mark WONG>requirement.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/48-0
+00:04:03.375 --> 00:04:06.954
+<v Mark WONG>Or some hidden requirement that they know
+from the client.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/46-0
+00:04:06.495 --> 00:04:06.695
+<v Maheshkumar Paik>You.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/48-1
+00:04:06.954 --> 00:04:11.806
+<v Mark WONG>But like last time you you you have the
+architecture so you can talk with them,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/47-0
+00:04:08.815 --> 00:04:08.935
+<v Maheshkumar Paik>OK.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/48-2
+00:04:11.806 --> 00:04:16.536
+<v Mark WONG>verify with them based on that and then
+we amend and then we have we create a</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/48-3
+00:04:16.536 --> 00:04:18.295
+<v Mark WONG>proposal like last time easy.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/49-0
+00:04:18.575 --> 00:04:24.255
+<v Mark WONG>Cost cost. I will tell you the price.
+I will tell you today or tomorrow.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/52-0
+00:04:24.935 --> 00:04:29.735
+<v Maheshkumar Paik>OK, so you had shared me two use cases,
+Semi AI knowledge based knowledge</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/52-1
+00:04:29.735 --> 00:04:34.015
+<v Maheshkumar Paik>management solution and ultimate.
+So what is these two use cases?</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/50-0
+00:04:29.735 --> 00:04:29.935
+<v Mark WONG>Yeah.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/51-0
+00:04:30.575 --> 00:04:30.975
+<v Mark WONG>Yes.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/54-0
+00:04:32.095 --> 00:04:35.653
+<v Mark WONG>Yeah. OK. OK.
+So so the the the left hand side,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/54-1
+00:04:35.653 --> 00:04:40.768
+<v Mark WONG>that table is the current state.
+That means they have nothing. Yeah.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/53-0
+00:04:39.535 --> 00:04:39.775
+<v Maheshkumar Paik>Uh.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/54-2
+00:04:40.768 --> 00:04:45.735
+<v Mark WONG>So what they want to achieve is the the
+the the box in the middle.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/56-0
+00:04:46.735 --> 00:04:52.723
+<v Mark WONG>But, but you can see the ultimate one,
+yeah, if we can oppose to them, hey,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/55-0
+00:04:46.895 --> 00:04:47.455
+<v Maheshkumar Paik>OK.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/56-1
+00:04:52.723 --> 00:04:57.214
+<v Mark WONG>actually you don't need to,
+you don't need to overthink.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/56-2
+00:04:57.214 --> 00:05:02.020
+<v Mark WONG>We can go straight to the ultimate
+solution with a low cost,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/56-3
+00:05:02.020 --> 00:05:04.935
+<v Mark WONG>very quick deployment time to market.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/57-0
+00:05:05.295 --> 00:05:06.975
+<v Mark WONG>Why not? Yeah.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/59-0
+00:05:07.095 --> 00:05:08.615
+<v Maheshkumar Paik>Yeah, OK. Got it. Makes sense.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/58-0
+00:05:09.055 --> 00:05:09.335
+<v Mark WONG>Yep.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/61-0
+00:05:11.695 --> 00:05:14.581
+<v Mark WONG>Yep,
+but the initial the the the the the</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/60-0
+00:05:11.815 --> 00:05:13.775
+<v Maheshkumar Paik>OK, guys. OK, Mark.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/61-1
+00:05:14.581 --> 00:05:17.818
+<v Mark WONG>initial thought is to achieve the middle
+one,</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/61-2
+00:05:17.818 --> 00:05:21.055
+<v Mark WONG>the middle term 1st and then do the
+ultimate.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/62-0
+00:05:19.255 --> 00:05:22.852
+<v Maheshkumar Paik>Hmm, got it, got it.
+So the ultimate is to create videos and</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/62-1
+00:05:22.852 --> 00:05:27.157
+<v Maheshkumar Paik>all from from the short videos and all.
+Yeah, OK, cool. That's possible.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/65-0
+00:05:24.815 --> 00:05:29.538
+<v Mark WONG>Yep, Yep, Yep. Beside, beside, beside,
+besides, besides video.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/62-2
+00:05:27.157 --> 00:05:30.695
+<v Maheshkumar Paik>But that that's also possible.
+Not not something like that.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/65-1
+00:05:29.538 --> 00:05:35.611
+<v Mark WONG>There are also some training document,
+but I don't think this is an issue if you</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/63-0
+00:05:34.495 --> 00:05:34.815
+<v Maheshkumar Paik>And.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/65-2
+00:05:35.611 --> 00:05:38.535
+<v Mark WONG>can handle video document inside, yeah.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/64-0
+00:05:37.175 --> 00:05:37.415
+<v Maheshkumar Paik>Hmm.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/66-0
+00:05:38.775 --> 00:05:43.455
+<v Maheshkumar Paik>Yeah. Yeah. Cool. OK, man. Thank you.
+Yeah.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/69-0
+00:05:39.855 --> 00:05:43.375
+<v Mark WONG>OK. All right, man. Thank you so much.
+Yep. Cheers. Bye, bye.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/68-0
+00:05:44.535 --> 00:05:44.895
+<v Maheshkumar Paik>Yes, bye bye.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/1-0
+00:00:00.000 --> 00:00:05.000
+<v Mark WONG>The core context for CLP is the industry-wide challenge of knowledge transfer. 
+We need to move this from senior experts to the next generation.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/2-0
+00:00:05.100 --> 00:00:10.500
+<v Maheshkumar Paik>Correct. Technically, we start with a RAG model, but we need to handle specific 
+jargon like K2 and industry-specific keywords.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/3-0
+00:00:10.600 --> 00:00:15.000
+<v Mark WONG>Exactly. It's not just a chatbot. This is a pilot strategy for a 
+whole learning platform in the future.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/4-0
+00:00:15.100 --> 00:00:22.000
+<v Mark WONG>If we extend to the learning platform, I want to use an AI Avatar. 
+A text-to-speech avatar that can lead classroom training using a real person's likeness.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/5-0
+00:00:22.100 --> 00:00:28.000
+<v Maheshkumar Paik>That is a strong use case. We can use AI Foundry to manage the 
+governance and multiple agents for different departments like HR and Legal.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/6-0
+00:00:28.100 --> 00:00:34.000
+<v Mark WONG>They currently use SharePoint for knowledge. We need a management console 
+to handle document references and implementation plans.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/7-0
+00:00:34.100 --> 00:00:40.000
+<v Maheshkumar Paik>I will submit the ballpark figure by Thursday or Friday. 
+We will calculate based on 1st-year Azure consumption to make it attractive.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/8-0
+00:00:40.100 --> 00:00:46.000
+<v Mark WONG>Good. Early February is the target. Let's pitch the 'Marketplace of Value' 
+story to show how other organizations manage their AI Governance.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/9-0
+00:00:46.100 --> 00:00:52.000
+<v Maheshkumar Paik>I'll prepare the case studies. We will show them how the 
+AI Avatar and Chatbot live together inside a platform like Viva Learning.</v>
+
+69d4ac26-9b30-4703-9295-9841f0f0c722/10-0
+00:00:52.100 --> 00:01:00.000
+<v Mark WONG>Perfect. Let's make it a business-focused story—HR, Legal, and Tech 
+all benefiting from one unified AI engine. Cheers.</v>

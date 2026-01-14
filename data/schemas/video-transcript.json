@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://clp.com.hk/schemas/video-transcript.json",
+  "title": "Video Transcript",
+  "description": "Schema for video transcripts with timestamps",
+  "type": "object",
+  "required": ["id", "video_id", "segments"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for the transcript",
+      "pattern": "^transcript-[a-z0-9]{12}$"
+    },
+    "video_id": {
+      "type": "string",
+      "description": "Reference to the source video document",
+      "pattern": "^doc-[a-z0-9]{12}$"
+    },
+    "video_url": {
+      "type": "string",
+      "description": "URL to the source video",
+      "format": "uri"
+    },
+    "video_title": {
+      "type": "string",
+      "description": "Title of the video",
+      "maxLength": 500
+    },
+    "total_duration_seconds": {
+      "type": "number",
+      "description": "Total video duration in seconds",
+      "minimum": 0
+    },
+    "language": {
+      "type": "string",
+      "description": "Primary language of the transcript",
+      "default": "en-US",
+      "pattern": "^[a-z]{2}-[A-Z]{2}$"
+    },
+    "transcription_confidence": {
+      "type": "number",
+      "description": "Overall confidence score (0-1)",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "segments": {
+      "type": "array",
+      "description": "Transcript segments with timestamps",
+      "items": {
+        "type": "object",
+        "required": ["id", "start_time", "end_time", "text"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Segment identifier"
+          },
+          "start_time": {
+            "type": "number",
+            "description": "Start time in seconds",
+            "minimum": 0
+          },
+          "end_time": {
+            "type": "number",
+            "description": "End time in seconds",
+            "minimum": 0
+          },
+          "text": {
+            "type": "string",
+            "description": "Transcribed text for this segment"
+          },
+          "confidence": {
+            "type": "number",
+            "description": "Confidence score for this segment",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "speaker": {
+            "type": "string",
+            "description": "Speaker identification (if available)"
+          },
+          "words": {
+            "type": "array",
+            "description": "Word-level timestamps",
+            "items": {
+              "type": "object",
+              "properties": {
+                "word": {
+                  "type": "string"
+                },
+                "start_time": {
+                  "type": "number"
+                },
+                "end_time": {
+                  "type": "number"
+                },
+                "confidence": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "full_text": {
+      "type": "string",
+      "description": "Complete transcript text without timestamps"
+    },
+    "chapters": {
+      "type": "array",
+      "description": "Auto-detected or manual chapter markers",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "number"
+          },
+          "end_time": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "description": "Transcript creation timestamp",
+      "format": "date-time"
+    },
+    "processed_by": {
+      "type": "string",
+      "description": "Service that generated the transcript",
+      "default": "azure-speech-services"
+    }
+  }
+}

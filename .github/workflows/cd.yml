@@ -1,0 +1,130 @@
+# CLP AI Safety Briefing Verification - CD Pipeline
+#
+# Deploys to Databricks on successful merge to main
+# - Deploys agent bundle to Databricks workspace
+# - Updates job configurations
+# - Runs smoke tests
+
+name: CD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "databricks.yml"
+      - "requirements.txt"
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deployment environment"
+        required: true
+        default: "dev"
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+
+env:
+  PYTHON_VERSION: "3.11"
+  DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+  DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+
+jobs:
+  deploy-dev:
+    name: Deploy to Dev
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' || github.event.inputs.environment == 'dev'
+    environment: dev
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+      
+      - name: Install Databricks CLI
+        run: |
+          pip install databricks-cli
+          databricks configure --token <<< "${{ secrets.DATABRICKS_TOKEN }}"
+      
+      - name: Install Databricks Asset Bundles
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+      
+      - name: Validate bundle
+        run: |
+          databricks bundle validate -t dev
+      
+      - name: Deploy bundle
+        run: |
+          databricks bundle deploy -t dev
+      
+      - name: Run smoke test
+        run: |
+          databricks bundle run smoke_test -t dev
+        continue-on-error: true
+      
+      - name: Notify on success
+        if: success()
+        run: echo "✅ Deployed to dev environment successfully"
+
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: deploy-dev
+    if: github.event.inputs.environment == 'staging'
+    environment: staging
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install Databricks CLI
+        run: |
+          pip install databricks-cli
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+      
+      - name: Deploy to staging
+        run: |
+          databricks bundle deploy -t staging
+
+  deploy-prod:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    if: github.event.inputs.environment == 'prod'
+    environment: production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install Databricks CLI
+        run: |
+          pip install databricks-cli
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+      
+      - name: Deploy to production
+        run: |
+          databricks bundle deploy -t prod
+      
+      - name: Create release tag
+        run: |
+          git tag "release-$(date +%Y%m%d-%H%M%S)"
+          git push origin --tags

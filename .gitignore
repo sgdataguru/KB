@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +10,103 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv/
+env/
+*.egg-info/
+.eggs/
+dist/
 
-# next.js
+# Testing
+/coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+*.lcov
+
+# Next.js
 /.next/
 /out/
 
-# production
+# Production
 /build
 
-# misc
+# Misc
 .DS_Store
 *.pem
 
-# debug
+# Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# Environment files
 .env*
+!.env.example
 
-# vercel
+# Vercel
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Azure
+.azure/
+local.settings.json
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Secrets (never commit)
+secrets/
+*.key
+*.crt
+credentials.json
+
+# Data files (too large for git)
+data/sample-data/*.mp4
+data/sample-data/*.wav
+data/sample-data/*.pdf
+*.sqlite
+*.db
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Azure Functions
+bin/
+obj/
