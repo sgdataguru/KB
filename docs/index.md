@@ -7,8 +7,12 @@
 ## 📚 Documentation Index
 
 ### Project Context
+- [Executive Technical Proposal](project-context/executive-technical-proposal.md) - Executive-grade proposal with commercials
 - [Business Case](project-context/business-case.md) - Project justification and value proposition
+- [Value Delivery Roadmap](project-context/value-delivery-roadmap.md) - Phased delivery timeline
 - [Technical Stack](project-context/tech-stack.md) - Technology choices and architecture
+- [Data Platform Strategy](project-context/data-platform-strategy.md) - Strategic foundation
+- [Risk & Constraint Register](project-context/risk-constraint-register.md) - Risk management
 
 ### Architecture
 - [Architecture Overview](architecture/overview.md) - High-level system design
