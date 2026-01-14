@@ -255,6 +255,359 @@ We propose a **"Land and Expand"** strategy. We start by solving the immediate p
 6. Basic monitoring and alerting
 7. User documentation and training materials
 
+---
+
+#### 📊 Phase 1 Detailed Breakdown (Slide-Ready)
+
+##### 🎯 SLIDE 1: The Problem We're Solving
+
+| Pain Point | Current State | Impact |
+|------------|---------------|--------|
+| **Knowledge Trapped in Video** | 2-hour videos for 30-second answers | Hours wasted per query |
+| **Senior Expert Bottleneck** | Juniors ask same questions repeatedly | 10+ hrs/week lost productivity |
+| **Tribal Knowledge Risk** | Expertise lives in people's heads | Single point of failure |
+| **SharePoint = Digital Graveyard** | Files uploaded, never found | 80% content never accessed |
+
+**The Burning Platform**: Every retiring expert takes decades of knowledge with them.
+
+---
+
+##### 🏗️ SLIDE 2: What We're Building (6 Weeks)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    THE INTELLIGENCE DESK                        │
+│                   "Ask. Find. Do. In Seconds."                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│    ┌─────────┐      ┌─────────┐      ┌─────────────────┐       │
+│    │  ASK    │ ──▶  │  FIND   │ ──▶  │  WATCH @ 14:30  │       │
+│    │ Natural │      │ AI RAG  │      │  Exact Moment   │       │
+│    │Language │      │ Search  │      │  + Citation     │       │
+│    └─────────┘      └─────────┘      └─────────────────┘       │
+│                                                                 │
+│    "How do I          Top 5              "Press red latch.     │
+│     reset the         relevant           Watch demo here        │
+│     turbine?"         chunks             [VIDEO @ 14:30]"       │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Key Differentiator**: Not just search—**temporal precision** with video timestamps.
+
+---
+
+##### 📅 SLIDE 3: Sprint-by-Sprint Roadmap
+
+| Sprint | Week | Focus Area | Key Milestone |
+|--------|------|------------|---------------|
+| **Sprint 1** | 1-2 | 🔧 **Foundation** | Azure environment + SharePoint connection live |
+| **Sprint 2** | 3-4 | 🎬 **Content Engine** | 10+ videos transcribed with timestamps |
+| **Sprint 3** | 5-6 | 🤖 **Intelligence Layer** | RAG chatbot deployed to VoltAI |
+
+**Sprint 1: Foundation (Weeks 1-2)**
+- [ ] Azure resource provisioning (OpenAI, AI Search, Cosmos DB)
+- [ ] SharePoint Graph API integration
+- [ ] Logic Apps webhook triggers configured
+- [ ] Basic CI/CD pipeline established
+- [ ] Security baseline (RBAC, Key Vault)
+
+**Sprint 2: Content Engine (Weeks 3-4)**
+- [ ] Video Indexer pipeline operational
+- [ ] Speech-to-text with word-level timestamps
+- [ ] Document Intelligence parsing
+- [ ] Semantic chunking service
+- [ ] Embedding generation (ada-002)
+- [ ] AI Search index populated
+
+**Sprint 3: Intelligence Layer (Weeks 5-6)**
+- [ ] RAG chatbot API development
+- [ ] Grounding enforcement (no hallucinations)
+- [ ] Citation generation with video links
+- [ ] VoltAI Marketplace integration
+- [ ] UAT with pilot users
+- [ ] Go-live preparation
+
+---
+
+##### 🎬 SLIDE 4: Video Processing Magic
+
+```mermaid
+graph LR
+    A[📹 Training Video<br/>2 hours] --> B[🎤 Azure Speech<br/>Transcription]
+    B --> C[⏱️ Timestamped<br/>Transcript]
+    C --> D[✂️ Smart<br/>Chunking]
+    D --> E[🧮 Embeddings<br/>1536-dim vectors]
+    E --> F[🔍 AI Search<br/>Index]
+    
+    style A fill:#ff6b6b
+    style F fill:#4ecdc4
+```
+
+**What Happens to a 2-Hour Video**:
+
+| Stage | Input | Output | Time |
+|-------|-------|--------|------|
+| **Upload** | MP4 file → SharePoint | Webhook trigger | Instant |
+| **Transcribe** | Audio stream | Text + timestamps | ~2 hours |
+| **Chunk** | Raw transcript | 50-100 chunks | < 1 min |
+| **Embed** | Text chunks | Vectors | < 2 min |
+| **Index** | Vectors + metadata | Searchable | < 1 min |
+
+**Result**: Every sentence tagged with its exact video timestamp.
+
+---
+
+##### 🔍 SLIDE 5: The Query Experience
+
+**User Journey: Junior Engineer Needs Help**
+
+```
+BEFORE (Today)                         AFTER (Phase 1)
+─────────────────                      ─────────────────
+1. Open SharePoint                     1. Open VoltAI chat
+2. Search "turbine reset"              2. Type: "How do I reset turbine?"
+3. Find 15 videos                      3. Get instant answer:
+4. Open first video (2 hrs)               
+5. Scrub through...                    ┌─────────────────────────────┐
+6. Wrong video                         │ "To reset the turbine:      │
+7. Try next video...                   │  1. Press the red latch     │
+8. Give up                             │  2. Hold for 3 seconds      │
+9. Walk to senior's desk               │  3. Wait for green light    │
+10. Interrupt their work               │                             │
+                                       │ 📹 Watch demo: [14:30]      │
+⏱️ Time: 45 minutes                    │ 📄 Source: Turbine_Manual   │
+😤 Frustration: High                   └─────────────────────────────┘
+                                       
+                                       ⏱️ Time: 30 seconds
+                                       😊 Confidence: High
+```
+
+---
+
+##### 🛡️ SLIDE 6: Safety First - Strict Grounding
+
+**Why This Matters in Utilities**: A hallucinated answer = safety incident.
+
+| Guardrail | Implementation | Example |
+|-----------|----------------|---------|
+| **Citation Required** | Every answer links to source | "See Turbine Manual, Page 23" |
+| **Confidence Scoring** | Low confidence → decline | "I don't have information on that" |
+| **No Fabrication** | Only indexed content | Won't guess procedures |
+| **Audit Trail** | Log every query + response | Compliance-ready |
+
+**The Promise**: If it's not in your content, the bot says **"I don't know"**.
+
+```
+❌ Bad (Generic AI)          ✅ Good (Our RAG)
+──────────────────           ──────────────────
+"The turbine reset           "To reset the turbine, press
+ involves pressing            the red latch as shown in
+ the main switch..."          [Training Video @ 14:30].
+                              
+ (MADE UP - DANGEROUS!)       Source: Turbine_Ops_2024.mp4"
+```
+
+---
+
+##### 📊 SLIDE 7: Success Metrics Dashboard
+
+| Metric | Target | How We Measure | Why It Matters |
+|--------|--------|----------------|----------------|
+| **Query Response Time** | < 3 seconds | App Insights P95 | User experience |
+| **Timestamp Accuracy** | ± 10 seconds | Manual testing | Trust in citations |
+| **Citation Accuracy** | > 90% | User feedback | Safety compliance |
+| **Query Resolution** | > 80% | No escalation needed | Productivity gain |
+| **User Adoption** | 80% pilot active | Weekly active users | Change management |
+| **System Uptime** | 99.5% | Azure Monitor | Reliability |
+| **Content Coverage** | 100% approved videos | Inventory check | Knowledge capture |
+
+---
+
+##### 💰 SLIDE 8: Phase 1 Investment Summary
+
+| Category | Cost | Notes |
+|----------|------|-------|
+| **Labor (6 weeks)** | $82,500 | PM/Architect + Data Scientist |
+| **Azure (6 months)** | $35,000 - $50,000 | Prorated ramp-up |
+| **Contingency (10%)** | $11,750 - $13,250 | Risk buffer |
+| **Total Phase 1** | **$129,250 - $145,750** | |
+
+**ROI Preview** (6-month post-launch):
+
+| Impact | Calculation | Value |
+|--------|-------------|-------|
+| Junior onboarding: 12→8 weeks | 4 weeks × $2,000/week × 10 hires | $80,000 saved |
+| Senior time freed: 7 hrs/week | 7 hrs × $100/hr × 52 weeks × 5 seniors | $182,000 saved |
+| **Total Annual Savings** | | **$262,000** |
+| **ROI** | ($262K - $140K) / $140K | **87%** |
+
+---
+
+##### ✅ SLIDE 9: Deliverables Checklist
+
+| # | Deliverable | Description | Sprint |
+|---|-------------|-------------|--------|
+| 1 | **Data Ingestion Pipeline** | SharePoint → Logic Apps → Azure Functions → Storage | 1 |
+| 2 | **Video Transcription** | Azure Speech Services with word-level timestamps | 2 |
+| 3 | **Document Parsing** | Azure Document Intelligence for PDFs/DOCX | 2 |
+| 4 | **Embedding & Indexing** | Azure OpenAI + AI Search vector store | 2 |
+| 5 | **RAG Chatbot API** | Grounded generation with citations | 3 |
+| 6 | **VoltAI Integration** | Chat interface in marketplace | 3 |
+| 7 | **Monitoring** | App Insights + Azure Monitor dashboards | 3 |
+| 8 | **User Documentation** | Training materials + quick-start guide | 3 |
+
+---
+
+##### 🚀 SLIDE 10: Week 1 Kickoff Plan
+
+**Day 1-2: Environment Setup**
+- [ ] Azure subscription provisioned
+- [ ] Resource group created (rg-clp-kb-dev)
+- [ ] Azure OpenAI quota approved
+- [ ] Key Vault configured
+
+**Day 3-4: Integration Setup**
+- [ ] SharePoint app registration
+- [ ] Graph API permissions granted
+- [ ] Test webhook connection
+- [ ] Sample video uploaded
+
+**Day 5: Team Alignment**
+- [ ] Architecture walkthrough
+- [ ] Sprint 1 backlog refined
+- [ ] Risk register reviewed
+- [ ] Communication plan confirmed
+
+**End of Week 1 Demo**: Live SharePoint → Azure trigger working.
+
+---
+
+##### 🎯 SLIDE 11: Go/No-Go Decision Points
+
+| Checkpoint | Timing | Criteria | Decision |
+|------------|--------|----------|----------|
+| **Sprint 1 Review** | End Week 2 | Azure infra working, SharePoint connected | Continue / Adjust |
+| **Sprint 2 Review** | End Week 4 | 10+ videos indexed, search returning results | Continue / Pivot |
+| **UAT Readiness** | Week 5 | Bot answering questions with citations | Proceed to UAT |
+| **Go-Live Gate** | Week 6 | All success metrics trending green | Launch / Delay |
+
+**Exit Criteria for Phase 1 Success**:
+- ✅ 100% approved videos transcribed and indexed
+- ✅ < 3 second query response time
+- ✅ > 90% citation accuracy in UAT
+- ✅ 10 pilot users trained and active
+- ✅ Monitoring dashboards operational
+
+---
+
+##### 📋 SLIDE 12: Key Assumptions
+
+**For Phase 1 success, we assume the following conditions are met:**
+
+| Category | Assumption | Risk if Not Met | Mitigation |
+|----------|------------|-----------------|------------|
+| **Content Access** | SharePoint folders with training videos are accessible via Graph API | Pipeline cannot ingest content | Early SharePoint permissions setup in Week 1 |
+| **Content Quality** | Training videos have clear audio for transcription (minimal background noise) | Low transcription accuracy | Pre-screen content; prioritize high-quality videos |
+| **Azure Quota** | Azure OpenAI GPT-4o and embedding quotas approved for Hong Kong region | Processing delays | Submit quota request immediately; have fallback region |
+| **Stakeholder Availability** | Key stakeholders available for weekly reviews and UAT feedback | Misaligned deliverables | Lock calendars upfront; async feedback option |
+| **Data Residency** | All data must remain in Hong Kong (Azure East Asia) | Compliance violation | Architecture enforces regional deployment |
+| **Network Connectivity** | CLP network allows outbound HTTPS to Azure services | Integration failures | Whitelist Azure endpoints; test early |
+
+---
+
+**Technical Assumptions**:
+
+| # | Assumption | Validation Method |
+|---|------------|-------------------|
+| 1 | **Video Format**: Training videos are in supported formats (MP4, AVI, MOV, WMV) | Content audit in Week 1 |
+| 2 | **Language**: Primary content is in English or Cantonese (Azure Speech supported) | Confirm with content owners |
+| 3 | **Volume**: Initial pilot scope is 20-50 training videos (< 100 hours total) | Content inventory review |
+| 4 | **Jargon Dictionary**: CLP will provide initial "K2" terminology list for custom embedding | SME workshop in Sprint 1 |
+| 5 | **User Accounts**: Pilot users have Microsoft 365 accounts with VoltAI access | IT confirmation |
+| 6 | **SSO Integration**: Azure AD (Entra ID) is the identity provider for all users | Architecture alignment |
+
+---
+
+**Organizational Assumptions**:
+
+| # | Assumption | Owner | Deadline |
+|---|------------|-------|----------|
+| 1 | **Executive Sponsorship**: Project has visible support from leadership | Sponsor | Day 1 |
+| 2 | **Change Management**: Communication plan exists for pilot user onboarding | PMO | Week 2 |
+| 3 | **SME Participation**: 2-3 senior engineers available for jargon training & UAT | Department Head | Week 3 |
+| 4 | **Feedback Culture**: Pilot users will actively report issues and suggestions | Team Leads | Ongoing |
+| 5 | **Content Governance**: Clear process exists for approving new video uploads | Content Owner | Week 4 |
+
+---
+
+**Infrastructure Assumptions**:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    ASSUMED READY STATE                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ✅ Azure Subscription          → Active with billing           │
+│  ✅ Azure AD Tenant             → Configured with MFA           │
+│  ✅ SharePoint Online           → Videos accessible             │
+│  ✅ Network Firewall            → Azure endpoints whitelisted   │
+│  ✅ VoltAI Marketplace          → Bot deployment slot ready     │
+│  ✅ Development Environment     → Team has access to repos      │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+**Dependency Chain**:
+
+```mermaid
+graph TD
+    A[SharePoint Access] --> B[Content Ingestion]
+    C[Azure OpenAI Quota] --> D[Embedding Generation]
+    B --> E[Video Transcription]
+    D --> F[AI Search Index]
+    E --> F
+    F --> G[RAG Chatbot]
+    H[VoltAI Slot] --> I[User Access]
+    G --> I
+    
+    style A fill:#ffd93d
+    style C fill:#ffd93d
+    style H fill:#ffd93d
+```
+
+**Legend**: 🟡 Yellow = External dependency (CLP-owned)
+
+---
+
+**Knowledge Platform-Specific Checkpoints**:
+
+| Checkpoint | Validation Question | Owner | Sprint |
+|------------|---------------------|-------|--------|
+| **Content Readiness** | Are 10+ high-priority videos identified and accessible? | Content Owner | 1 |
+| **Jargon Baseline** | Is the initial K2 terminology list documented? | SME Lead | 1 |
+| **Transcription Quality** | Does sample transcription achieve >85% accuracy? | Data Scientist | 2 |
+| **Search Relevance** | Do test queries return correct video segments? | QA Lead | 2 |
+| **Citation Accuracy** | Are timestamps within ±10 seconds of actual content? | QA Lead | 3 |
+| **User Experience** | Can pilot users complete 5 test queries successfully? | UAT Lead | 3 |
+
+---
+
+**Assumption Sign-Off**:
+
+> ⚠️ **Action Required**: Before Sprint 1 kickoff, stakeholders must confirm these assumptions are valid. Any false assumptions should be flagged immediately to adjust scope or timeline.
+
+| Assumption Category | Confirmed By | Date |
+|---------------------|--------------|------|
+| Content Access | _______________ | ___/___/___ |
+| Technical Requirements | _______________ | ___/___/___ |
+| Organizational Readiness | _______________ | ___/___/___ |
+| Infrastructure | _______________ | ___/___/___ |
+
+---
+
 ### Phase 2: The "Learning Empire" (Future State - Weeks 7-24)
 
 **Goal**: Active Knowledge Transfer and Enterprise-Scale Intelligence

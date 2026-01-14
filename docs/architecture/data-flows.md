@@ -19,82 +19,189 @@ This document describes the end-to-end data flows within the CLP AI Knowledge Ma
 
 ## 2. Data Flow Diagrams
 
-### 2.1 Content Ingestion Flow
+### 2.1 Content Ingestion Flow (Video Processing)
 
-```
-+-------------+     +-------------+     +------------------+
-|  SharePoint |---->|  Logic Apps |---->|  Azure Functions |
-|  (Source)   |     |  (Trigger)  |     |  (Orchestrator)  |
-+-------------+     +-------------+     +--------+---------+
-                                                 |
-                    +----------------------------+
-                    |                            |
-                    v                            v
-          +------------------+         +------------------+
-          |  Speech Services |         |  Document Parser |
-          |  (Videos)        |         |  (PDF/Word)      |
-          +--------+---------+         +--------+---------+
-                   |                            |
-                   +-------------+--------------+
-                                 |
-                                 v
-                      +--------------------+
-                      |  Chunking Service  |
-                      |  (Text Splitting)  |
-                      +---------+----------+
-                                |
-                                v
-                      +--------------------+
-                      |  Azure OpenAI      |
-                      |  (Embeddings)      |
-                      +---------+----------+
-                                |
-              +-----------------+------------------+
-              |                                    |
-              v                                    v
-    +------------------+                 +------------------+
-    |  Azure Cosmos DB |                 |  Azure AI Search |
-    |  (Metadata)      |                 |  (Vector Index)  |
-    +------------------+                 +------------------+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant SP as 📁 SharePoint<br/>(Source)
+    participant Logic as ⚙️ Logic Apps<br/>(Trigger)
+    participant Func as λ Azure Functions<br/>(Orchestrator)
+    participant Speech as 🎤 Speech Services<br/>(Transcription)
+    participant Chunk as ✂️ Chunking Service<br/>(Text Splitting)
+    participant OpenAI as 🤖 Azure OpenAI<br/>(Embeddings)
+    participant Cosmos as 📊 Cosmos DB<br/>(Metadata)
+    participant Search as 🔍 AI Search<br/>(Vector Index)
+
+    Note over SP,Search: 🎬 VIDEO PROCESSING PIPELINE (~1.5x video duration + 10 min)
+
+    rect rgb(50, 60, 80)
+        Note right of SP: Step 1: Event Trigger (Real-time)
+        SP->>Logic: File upload event (webhook)
+        Note right of Logic: Step 2: Processing Trigger (< 1 min)
+        Logic->>Logic: Validate file type (MP4, MOV, AVI)
+        Logic->>Func: Queue video processing job
+    end
+
+    rect rgb(60, 70, 90)
+        Note right of Func: Step 3: Audio Extraction (< 5 min)
+        Func->>Func: Extract audio from video
+        Func->>Speech: Submit audio stream
+        Note right of Speech: Step 4: Transcription (~1x video duration)
+        Speech->>Speech: Speech-to-Text with timestamps
+        Speech->>Speech: Speaker diarization
+        Speech-->>Func: Transcript + word-level timecodes
+    end
+
+    rect rgb(70, 80, 100)
+        Note right of Chunk: Step 5: Semantic Chunking (< 1 min)
+        Func->>Chunk: Raw transcript with timestamps
+        Chunk->>Chunk: Split by semantic boundaries
+        Chunk->>Chunk: Maintain timestamp ranges per chunk
+        Note right of Chunk: 100-500 tokens/chunk<br/>50-token overlap
+        Chunk-->>Func: Timestamped chunks + metadata
+    end
+
+    rect rgb(80, 90, 110)
+        Note right of OpenAI: Step 6: Embedding Generation (< 2 min)
+        Func->>OpenAI: Batch text chunks
+        OpenAI->>OpenAI: text-embedding-ada-002
+        OpenAI-->>Func: 1536-dim vectors per chunk
+    end
+
+    rect rgb(90, 100, 120)
+        Note right of Search: Step 7: Dual Storage (< 1 min)
+        par Store Metadata
+            Func->>Cosmos: Document metadata + chunk info
+            Note right of Cosmos: Source URL, timestamps,<br/>department, speakers
+        and Index Vectors
+            Func->>Search: Vectors + searchable content
+            Note right of Search: Hybrid index (vector + keyword)
+        end
+        Cosmos-->>Func: ✓ Metadata stored
+        Search-->>Func: ✓ Index updated
+    end
+
+    Note over SP,Search: ✅ Video ready for RAG queries
 ```
 
-### 2.2 Query Processing Flow
+### 2.2 Content Ingestion Flow (Document Processing)
 
+```mermaid
+sequenceDiagram
+    autonumber
+    participant SP as 📁 SharePoint<br/>(Source)
+    participant Logic as ⚙️ Logic Apps<br/>(Trigger)
+    participant Func as λ Azure Functions<br/>(Orchestrator)
+    participant DocAI as 📄 Document Intelligence<br/>(Parser)
+    participant Chunk as ✂️ Chunking Service<br/>(Text Splitting)
+    participant OpenAI as 🤖 Azure OpenAI<br/>(Embeddings)
+    participant Cosmos as 📊 Cosmos DB<br/>(Metadata)
+    participant Search as 🔍 AI Search<br/>(Vector Index)
+
+    Note over SP,Search: 📄 DOCUMENT PROCESSING PIPELINE (< 10 min total)
+
+    rect rgb(50, 60, 80)
+        Note right of SP: Step 1: Event Trigger (Real-time)
+        SP->>Logic: File upload event (webhook)
+        Note right of Logic: Step 2: Processing Trigger (< 1 min)
+        Logic->>Logic: Validate file type (PDF, DOCX, PPTX)
+        Logic->>Func: Queue document processing job
+    end
+
+    rect rgb(60, 70, 90)
+        Note right of DocAI: Step 3: Document Parsing (< 2 min)
+        Func->>DocAI: Submit document
+        DocAI->>DocAI: Extract text, tables, images
+        DocAI->>DocAI: Preserve structure & hierarchy
+        DocAI->>DocAI: OCR for scanned content
+        DocAI-->>Func: Structured content + layout
+    end
+
+    rect rgb(70, 80, 100)
+        Note right of Chunk: Step 4: Semantic Chunking (< 1 min)
+        Func->>Chunk: Extracted text + structure
+        Chunk->>Chunk: Split by sections/paragraphs
+        Chunk->>Chunk: Maintain page references
+        Note right of Chunk: 100-500 tokens/chunk<br/>50-token overlap
+        Chunk-->>Func: Overlapping chunks + metadata
+    end
+
+    rect rgb(80, 90, 110)
+        Note right of OpenAI: Step 5: Embedding Generation (< 2 min)
+        Func->>OpenAI: Batch text chunks
+        OpenAI->>OpenAI: text-embedding-ada-002
+        OpenAI-->>Func: 1536-dim vectors per chunk
+    end
+
+    rect rgb(90, 100, 120)
+        Note right of Search: Step 6: Dual Storage (< 1 min)
+        par Store Metadata
+            Func->>Cosmos: Document metadata + chunk info
+            Note right of Cosmos: Source URL, page numbers,<br/>department, author
+        and Index Vectors
+            Func->>Search: Vectors + searchable content
+            Note right of Search: Hybrid index (vector + keyword)
+        end
+        Cosmos-->>Func: ✓ Metadata stored
+        Search-->>Func: ✓ Index updated
+    end
+
+    Note over SP,Search: ✅ Document ready for RAG queries
 ```
-+-------------+     +-------------+     +------------------+
-|    User     |---->|   VoltAI    |---->|    Chat API      |
-|  (Question) |     | Marketplace |     |  (App Service)   |
-+-------------+     +-------------+     +--------+---------+
-                                                 |
-                                                 v
-                                      +--------------------+
-                                      |  Query Embedding   |
-                                      |  (Azure OpenAI)    |
-                                      +---------+----------+
-                                                |
-                                                v
-                                      +--------------------+
-                                      |  Vector Search     |
-                                      |  (AI Search)       |
-                                      +---------+----------+
-                                                |
-                                                v
-                                      +--------------------+
-                                      |  Context Assembly  |
-                                      |  (Top-K Results)   |
-                                      +---------+----------+
-                                                |
-                                                v
-                                      +--------------------+
-                                      |  LLM Generation    |
-                                      |  (GPT-4 Grounded)  |
-                                      +---------+----------+
-                                                |
-                                                v
-                                      +--------------------+
-                                      |  Response + Cite   |
-                                      |  (w/ Timestamps)   |
-                                      +--------------------+
+
+### 2.3 Query Processing Flow (RAG Pipeline)
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant User as 👤 User<br/>(Junior Engineer)
+    participant VoltAI as 🌐 VoltAI<br/>Marketplace
+    participant API as ⚡ Chat API<br/>(App Service)
+    participant OpenAI as 🤖 Azure OpenAI
+    participant Search as 🔍 AI Search<br/>(Vector Index)
+    participant Cosmos as 📊 Cosmos DB<br/>(Metadata)
+
+    Note over User,Cosmos: 🔍 RAG QUERY PIPELINE (< 3 seconds end-to-end)
+
+    rect rgb(50, 60, 80)
+        Note right of User: Query Submission
+        User->>VoltAI: "How do I reset the turbine?"
+        VoltAI->>API: Forward authenticated query
+    end
+
+    rect rgb(60, 70, 90)
+        Note right of OpenAI: Query Understanding & Embedding
+        API->>OpenAI: Generate query embedding
+        OpenAI-->>API: Query vector [1536 dims]
+    end
+
+    rect rgb(70, 80, 100)
+        Note right of Search: Hybrid Retrieval
+        API->>Search: Vector + keyword search
+        Note right of Search: Weight: 0.7 vector / 0.3 keyword<br/>Top-K: 5-10 chunks
+        Search->>Search: Semantic reranking
+        Search-->>API: Ranked results + scores
+        API->>Cosmos: Fetch source metadata
+        Cosmos-->>API: Timestamps, URLs, authors
+    end
+
+    rect rgb(80, 90, 110)
+        Note right of OpenAI: Grounded Response Generation
+        API->>API: Assemble context (max 4000 tokens)
+        API->>OpenAI: GPT-4o with strict grounding
+        Note right of OpenAI: Temperature: 0.1<br/>Must cite sources<br/>Say "I don't know" if unsure
+        OpenAI-->>API: Grounded response + citations
+    end
+
+    rect rgb(90, 100, 120)
+        Note right of User: Response Delivery
+        API->>API: Format response with video links
+        API-->>VoltAI: JSON response
+        VoltAI-->>User: "Reset turbine by pressing<br/>red latch. Watch at [14:30]"
+    end
+
+    Note over User,Cosmos: ✅ Answer delivered with clickable video timestamp
 ```
 
 ---
