@@ -130,7 +130,9 @@ npm run dev
 
 ## 📝 Documentation
 
+- [Executive Technical Proposal](docs/project-context/executive-technical-proposal.md) - Executive-grade proposal
 - [Business Case](docs/project-context/business-case.md)
+- [Value Delivery Roadmap](docs/project-context/value-delivery-roadmap.md)
 - [Technical Stack](docs/project-context/tech-stack.md)
 - [Architecture Overview](docs/architecture/overview.md)
 - [Infrastructure Guide](infra/docs/README.md)
