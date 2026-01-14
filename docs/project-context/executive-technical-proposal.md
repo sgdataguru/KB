@@ -385,6 +385,8 @@ To execute a project of this strategic importance, you cannot rely on generalist
 | Application Insights | Standard | $100 - $150 |
 | Azure Monitor | Logs + Metrics | $50 - $100 |
 
+**Note**: Azure OpenAI TPM (Tokens Per Minute) allocation varies by model and region. Production deployments may require quota increase requests through Azure support. Costs shown assume standard regional pricing for Hong Kong (East Asia).
+
 **Phase 1 Monthly Azure Total**: **$4,800 - $7,000**  
 **Phase 1 Annual Azure Total (prorated)**: **~$35,000 - $50,000** (assuming 6-month ramp-up)
 
@@ -500,7 +502,7 @@ By calculating the projected **Azure Consumption Plan (ACP)** for Year 1 ($60K-$
 | **Vector Database** | Database optimized for semantic similarity search using embeddings |
 | **Embedding** | Numerical representation of text that captures semantic meaning |
 | **Grounding** | Constraining AI responses to only use provided context (no hallucinations) |
-| **TPM** | Tokens Per Minute - Azure OpenAI throughput measurement |
+| **TPM** | Tokens Per Minute - Azure OpenAI throughput measurement. Rates vary by model and region; production workloads may require quota increases. |
 | **K2** | CLP-specific operational terminology requiring custom handling |
 | **Semantic Ranker** | Azure AI Search feature that re-ranks results using deep learning |
 
